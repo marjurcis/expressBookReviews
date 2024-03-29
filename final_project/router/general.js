@@ -46,13 +46,13 @@ public_users.get('/isbn/:isbn', function (req, res) {
 // Get book details based on author
 public_users.get('/author/:author', function (req, res) {
     const keys = Object.keys(books)
-    let result = null
+    let result = []
 
     for (let key of keys) {
         let book = books[key]
 
         if (book.author === req.params.author) {
-            result = book
+            result.push(book)
         }
     }
 
@@ -62,13 +62,13 @@ public_users.get('/author/:author', function (req, res) {
 // Get all books based on title
 public_users.get('/title/:title', function (req, res) {
     const keys = Object.keys(books)
-    let result = null
+    let result = []
 
     for (let key of keys) {
         let book = books[key]
 
         if (book.title === req.params.title) {
-            result = book
+            result.push(book)
         }
     }
 
